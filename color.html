@@ -10,16 +10,15 @@
         };
 
         function changeColor() {
-            color(
-                  document.getElementById('the-text').value, 
-                  document.getElementById('foreground').value, 
-                  document.getElementById('background').value);
-            /*
-            document.getElementById('the-html').innerHTML = 
-                document.getElementById('the-text').value + " " + 
-                style="color:" + 
-                  document.getElementById('foreground').innerText;
-                  */
+            var txt = document.getElementById('the-text')
+            var fg =  document.getElementById('foreground');
+            var bg =  document.getElementById('background');
+            color(txt.value, fg.value, bg.value);
+
+            var htm =document.getElementById('the-html');
+            htm.innerHTML = txt.value;
+            htm.style.color = fg.item(fg.selectedIndex).innerText;
+            htm.style.backgroundColor = bg.item(bg.selectedIndex).innerText;
             
         };
         
@@ -40,6 +39,7 @@
 <option value="7">White</option>
 </select>
 <select id="background" onchange="changeColor();">
+<option value=""></option>
 <option value="0">Black</option>
 <option value="1">Red</option>
 <option value="2">Green</option>
