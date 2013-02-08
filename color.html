@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" media="screen"
+          href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.0.4/css/bootstrap.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <script type="text/javascript" src="color.js"></script>
     <script type="text/javascript">
         window.onload = function() {
@@ -25,30 +29,37 @@
     </script>
 </head>
 <body>
-<h1 id="the-code">Hi!</h1>
-<h1 id="the-html">Hi!</h1>
-<input id="the-text" type="text" onkeyup="changeColor();" />
-<select id="foreground" onchange="changeColor();">
-<option value="0">Black</option>
-<option value="1">Red</option>
-<option value="2">Green</option>
-<option value="3">Yellow</option>
-<option value="4">Blue</option>
-<option value="5">Magenta</option>
-<option value="6">Cyan</option>
-<option value="7">White</option>
-</select>
-<select id="background" onchange="changeColor();">
-<option value=""></option>
-<option value="0">Black</option>
-<option value="1">Red</option>
-<option value="2">Green</option>
-<option value="3">Yellow</option>
-<option value="4">Blue</option>
-<option value="5">Magenta</option>
-<option value="6">Cyan</option>
-<option value="7">White</option>
-</select>
-    
+<div class="container">
+<div class="span12">
+    <h1 id="the-html">Hi!</h1>
+    <br />
+    <h1 id="the-code">Hi!</h1>
+    <br />
+    <input id="the-text" type="text" onkeyup="changeColor();" />
+    <br />
+    <select id="foreground" onchange="changeColor();">
+    <option value="0">Black</option>
+    <option value="1">Red</option>
+    <option value="2">Green</option>
+    <option value="3">Yellow</option>
+    <option value="4">Blue</option>
+    <option value="5">Magenta</option>
+    <option value="6">Cyan</option>
+    <option value="7">White</option>
+    </select>
+    <br />
+    <select id="background" onchange="changeColor();">
+    <option value=""></option>
+    <option value="0">Black</option>
+    <option value="1">Red</option>
+    <option value="2">Green</option>
+    <option value="3">Yellow</option>
+    <option value="4">Blue</option>
+    <option value="5">Magenta</option>
+    <option value="6">Cyan</option>
+    <option value="7">White</option>
+    </select>
+</div>
+</div>
 </body>
 </html>
