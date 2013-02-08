@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="color.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            color("hello", 1,2);
+        };
+
+        function changeColor() {
+            color(
+                  document.getElementById('the-text').value, 
+                  document.getElementById('foreground').value, 
+                  document.getElementById('background').value);
+            /*
+            document.getElementById('the-html').innerHTML = 
+                document.getElementById('the-text').value + " " + 
+                style="color:" + 
+                  document.getElementById('foreground').innerText;
+                  */
+            
+        };
+        
+    </script>
+</head>
+<body>
+<h1 id="the-code">Hi!</h1>
+<h1 id="the-html">Hi!</h1>
+<input id="the-text" type="text" onkeyup="changeColor();" />
+<select id="foreground" onchange="changeColor();">
+<option value="0">Black</option>
+<option value="1">Red</option>
+<option value="2">Green</option>
+<option value="3">Yellow</option>
+<option value="4">Blue</option>
+<option value="5">Magenta</option>
+<option value="6">Cyan</option>
+<option value="7">White</option>
+</select>
+<select id="background" onchange="changeColor();">
+<option value="0">Black</option>
+<option value="1">Red</option>
+<option value="2">Green</option>
+<option value="3">Yellow</option>
+<option value="4">Blue</option>
+<option value="5">Magenta</option>
+<option value="6">Cyan</option>
+<option value="7">White</option>
+</select>
+    
+</body>
+</html>
