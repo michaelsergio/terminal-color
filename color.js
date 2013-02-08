@@ -1,8 +1,9 @@
-function colorcode(text, fgc, bgc) {
+function colorcode(text, fgc, bgc, properties) {
 // b r g y u m c w
 //
 // 0 - 7
 //
+
 
 var prop = {
     "normal": 0,
@@ -12,6 +13,10 @@ var prop = {
     "blink": 5,
     "negative": 7
 };
+
+
+//TODO: add properties by linking them to the checkboxes
+
 
 var fgp = [prop.underline, prop.bold];
 var bgp = [];
