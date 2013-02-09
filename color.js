@@ -20,11 +20,11 @@ var specialprops = properties.map(function(e) {
     return prop[e];
 }).join(";");
 
-if (specialprops !== "") specialprops = ";" + specialprops;
+if (specialprops !== "") specialprops = specialprops;
 
 
-var fg = ['3'+fgc].join(";");
-var bg = ['4'+bgc].join(";");
+var fg = '3'+fgc;
+var bg = (bgc === "") ? "" : '4'+bgc + ";";
 
 var colors = bg ? [fg].concat(bg) : [fg];
 
