@@ -11,10 +11,6 @@
             from { opacity: 1.0; }
             to { opacity: 0.0; }
     }
-    .negative {
-        -webkit-filter:invert(1);
-
-    }
     .css3-blink {
         -webkit-animation-name: blinker;  
         -webkit-animation-iteration-count: infinite;  
@@ -72,9 +68,6 @@
                         break;
                         case "blink":
                             htm.classList.add("css3-blink");
-                        break;
-                        case "negative":
-                            htm.classList.add("negative");
                         break;
                     }
 
@@ -138,11 +131,6 @@
         <label class="checkbox">
         <input name="opt" type="checkbox" value="blink" />Blink
         </label>
-
-        <label class="checkbox">
-        <input name="opt" type="checkbox" value="negative" />Negative
-        </label>
-
     </form>
 </div>
 </div>

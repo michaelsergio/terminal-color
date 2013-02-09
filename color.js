@@ -10,8 +10,7 @@ var prop = {
     "bold": 1,
     "faint":2, 
     "underline":4, 
-    "blink": 5,
-    "negative": 7
+    "blink": 5
 };
 
 //TODO: add properties by linking them to the checkboxes
