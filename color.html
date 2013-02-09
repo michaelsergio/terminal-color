@@ -11,6 +11,10 @@
             from { opacity: 1.0; }
             to { opacity: 0.0; }
     }
+    .negative {
+        -webkit-filter:invert(1);
+
+    }
     .css3-blink {
         -webkit-animation-name: blinker;  
         -webkit-animation-iteration-count: infinite;  
@@ -22,7 +26,7 @@
     <script type="text/javascript" src="color.js"></script>
     <script type="text/javascript">
         window.onload = function() {
-            color("hello", 1,2);
+            changeColor();
         };
 
         function changeColor() {
@@ -36,12 +40,48 @@
                 if (o.checked) opts = opts.concat(o.value);
             }
 
-            color(txt.value, fg.value, bg.value, opts);
+            var code = color(txt.value, fg.value, bg.value, opts);
+
+            document.getElementById('the-pre').innerText = code;
+            document.getElementById('the-code').innerText = code;
 
             var htm =document.getElementById('the-html');
-            htm.innerHTML = txt.value;
+            htm.innerText = txt.value;
             htm.style.color = fg.item(fg.selectedIndex).innerText;
             htm.style.backgroundColor = bg.item(bg.selectedIndex).innerText;
+
+            // reset
+            htm.className = "";
+            htm.style.opacity = "1";
+            htm.style.textDecoration = "";
+            htm.style.fontWeight = "normal";
+
+            // add
+            for(var i = 0; i < options.length; i++) {
+                var o = options[i];
+                if (o.checked) {
+                    switch (o.value) {
+                        case "bold":
+                            htm.style.fontWeight = "bold";
+                        break;
+                        case "faint":
+                            htm.style.opacity = "0.5";
+                        break;
+                        case "underline":
+                            htm.style.textDecoration = "underline";
+                        break;
+                        case "blink":
+                            htm.classList.add("css3-blink");
+                        break;
+                        case "negative":
+                            htm.classList.add("negative");
+                        break;
+                    }
+
+                }
+            }
+
+
 
             
         };
@@ -52,10 +92,10 @@
 <div class="container">
 <div class="span12">
     <h1>Quick Terminal Color Tool</h1>
-    <h2>echo -e "the following"</h2>
+    <h2><pre>echo -e '<span id="the-pre"></span>'</pre></h2>
     <h1 id="the-code">Hi!</h1>
     <br />
-    <input id="the-text" type="text" onkeyup="changeColor();" />
+    <input id="the-text" type="text" onkeyup="changeColor();" value="Hi!" />
     <h2>will make:</h2>
     <h1 id="the-html">Hi!</h1>
     <br />

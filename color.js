@@ -39,6 +39,6 @@ return color_text;
 
 function color(text,fg,bg, opts) {
     if (!opts) opts = [];
-    document.getElementById('the-code').innerText = colorcode(text,fg,bg, opts);
+    return colorcode(text,fg,bg, opts);
 }
 
