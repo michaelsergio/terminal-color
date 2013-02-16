@@ -20,17 +20,15 @@ var specialprops = properties.map(function(e) {
     return prop[e];
 }).join(";");
 
-if (specialprops !== "") specialprops = specialprops;
+if (specialprops !== "") specialprops = ";" + specialprops;
 
 
 var fg = '3'+fgc;
-var bg = (bgc === "") ? "" : '4'+bgc + ";";
+var bg = (bgc === "") ? "" : ";" + '4' + bgc;
 
-var colors = bg ? [fg].concat(bg) : [fg];
-
-
-var colorings = "\\x1b[" + [fg, bg].join(";") + specialprops + 'm';
-var reset = "\\x1b[0m";
+var esc = "\\033";
+var colorings = esc + "[" + fg + bg + specialprops + 'm';
+var reset =  esc + "[0m";
 
 var color_text = colorings + text + reset;
 return color_text;
