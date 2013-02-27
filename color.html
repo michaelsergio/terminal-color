@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" media="screen"
           href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.0.4/css/bootstrap.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
     <style type="text/css">
     @-webkit-keyframes blinker {  
             from { opacity: 1.0; }
@@ -33,6 +35,7 @@
             changeColor();
         };
 
+
         function changeColor() {
             var txt = document.getElementById('the-text')
             var fg =  document.getElementById('foreground');
@@ -46,7 +49,7 @@
 
             var code = color(txt.value, fg.value, bg.value, opts);
 
-            document.getElementById('the-pre').innerText = code;
+            $('.the-pre').text(code);
             document.getElementById('the-code').innerText = code;
 
             var htm =document.getElementById('the-html');
@@ -83,7 +86,7 @@
             }
 
 
-
+            $('#nav a').tab('show');
             
         };
         
@@ -94,9 +97,35 @@
 <div class="row-fluid">
 <div class="span12">
     <h1>Quick Terminal Color Tool</h1>
-    <h2><pre>echo -e '<span id="the-pre"></span>'</pre></h2>
+
     <h1 id="the-code">Hi!</h1>
+
+    <div class="tabbable tabs-below"> 
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#tabsh" data-toggle="tab">Bash</a></li>
+        <li><a href="#tabpy" data-toggle="tab">Python</a></li>
+        <li><a href="#tabrb" data-toggle="tab">Ruby</a></li>
+        <li><a href="#tabphp" data-toggle="tab">PHP</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="tabsh">
+          <h2><pre>echo -e '<span class="the-pre"></span>'</pre></h2>
+        </div>
+        <div class="tab-pane" id="tabpy">
+          <h2><pre>print('<span class="the-pre"></span>')</pre></h2>
+        </div>
+        <div class="tab-pane" id="tabrb">
+          <h2><pre>print "<span class="the-pre"></span>"</pre></h2>
+        </div>
+        <div class="tab-pane" id="tabphp">
+          <h2><pre>echo "<span class="the-pre"></span>";</pre></h2>
+        </div>
+      </div>
+    </div>
+
     <br />
+
+
     <input id="the-text" type="text" onkeyup="changeColor();" value="Hi!" />
     <h2>will make:</h2>
     <h1 id="the-html">Hi!</h1>
@@ -141,12 +170,6 @@
         <input name="opt" type="checkbox" value="blink" />Blink
         </label>
     </form>
-</div>
-
-<div>
-    <h3>Language Use</h3>
-    <p><small>* Use double quotes for PHP and Ruby</small></p>
-    <p><small>* Python doesn't care</small></p>
 </div>
 
 <div class="credit pull-right">
