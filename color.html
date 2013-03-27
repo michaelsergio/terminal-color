@@ -50,9 +50,9 @@
             var code = color(txt.value, fg.value, bg.value, opts);
 
             $('.the-pre').text(code);
-            document.getElementById('the-code').innerText = code;
+            document.getElementById('the-html').innerText = code;
 
-            var htm =document.getElementById('the-html');
+            var htm = document.getElementById('the-html');
             htm.innerText = txt.value;
             htm.style.color = fg.item(fg.selectedIndex).innerText;
             htm.style.backgroundColor = bg.item(bg.selectedIndex).innerText;
